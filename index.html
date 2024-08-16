@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ------ # Link Main Css File # ------ -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Memory Game</title>
+  </head>
+  <body>
+    <div class="overlay"></div>
+
+    <!-- ------ # Popup Start Game # ------ -->
+    <div class="start-box popup">
+      <h2 class="title">Welcome to Memory Game</h2>
+      <label for="yourName">Enter Your Name:</label>
+      <input type="text" placeholder="Your Name..." id="yourName" />
+
+      <!-- Choose avatar -->
+      <div class="select-box">
+        <label for="uploadAvatar" class="choose-avatar">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M432,112V96a48.14,48.14,0,0,0-48-48H64A48.14,48.14,0,0,0,16,96V352a48.14,48.14,0,0,0,48,48H80"
+              class="style-svg"
+            />
+            <rect
+              x="96"
+              y="128"
+              width="400"
+              height="336"
+              rx="45.99"
+              ry="45.99"
+              class="style-svg"
+            />
+            <ellipse
+              cx="372.92"
+              cy="219.64"
+              rx="30.77"
+              ry="30.55"
+              class="style-svg"
+              class="style-svg"
+              style="stroke-miterlimit: 10; stroke-width: 32px"
+            />
+            <path
+              d="M342.15,372.17,255,285.78a30.93,30.93,0,0,0-42.18-1.21L96,387.64"
+              class="style-svg"
+            />
+            <path
+              d="M265.23,464,383.82,346.27a31,31,0,0,1,41.46-1.87L496,402.91"
+              class="style-svg"
+            />
+          </svg>
+          Choose avatar</label
+        >
+        <input type="file" style="display: none" id="uploadAvatar" />
+      </div>
+      <button id="start-game">Play</button>
+      <div class="copyright">Developed by <a href="#">MohamedZain</a></div>
+    </div>
+
+    <!-- ------ # Container Game # ------ -->
+    <div class="container-game">
+      <!-- time Game -->
+      <div class="game-time">Time: 00:<span>60</span></div>
+      <div class="heading-game">
+        <!-- User -->
+        <div class="user">
+          <img
+            src="./assets/images/user.png"
+            class="userAvatar"
+            alt="user avatar"
+          />
+          <span class="userName">Your Name</span>
+        </div>
+        <!-- Wrong -->
+        <div class="wrong-box">Wrong Tries: <span class="wrong">0</span></div>
+      </div>
+      <!-- Box Game -->
+      <div class="memory-game-blocks">
+        <div class="game-block" data-card="card_01">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/card-01.PNG" alt="card 1" />
+          </div>
+        </div>
+        <div class="game-block" data-card="card_01">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/card-01.PNG" alt="card 1" />
+          </div>
+        </div>
+
+        <div class="game-block" data-card="card_02">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/card-02.png" alt="card 2" />
+          </div>
+        </div>
+        <div class="game-block" data-card="card_02">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/card-02.png" alt="card 2" />
+          </div>
+        </div>
+
+        <div class="game-block" data-card="card_03">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/card-03.PNG" alt="card 3" />
+          </div>
+        </div>
+        <div class="game-block" data-card="card_03">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/card-03.PNG" alt="card 3" />
+          </div>
+        </div>
+
+        <div class="game-block" data-card="card_04">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/card-04.png" alt="card 4" />
+          </div>
+        </div>
+        <div class="game-block" data-card="card_04">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/card-04.png" alt="card 4" />
+          </div>
+        </div>
+
+        <div class="game-block" data-card="card_05">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/card-05.png" alt="card 5" />
+          </div>
+        </div>
+        <div class="game-block" data-card="card_05">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/card-05.png" alt="card 5" />
+          </div>
+        </div>
+
+        <div class="game-block" data-card="card_06">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/card-06.png" alt="card 6" />
+          </div>
+        </div>
+        <div class="game-block" data-card="card_06">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/card-06.png" alt="card 6" />
+          </div>
+        </div>
+
+        <div class="game-block" data-card="card_07">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/card-07.png" alt="card 7" />
+          </div>
+        </div>
+        <div class="game-block" data-card="card_07">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/card-07.png" alt="card 7" />
+          </div>
+        </div>
+
+        <div class="game-block" data-card="card_08">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/card-08.PNG" alt="card 8" />
+          </div>
+        </div>
+        <div class="game-block" data-card="card_08">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/card-08.PNG" alt="card 8" />
+          </div>
+        </div>
+
+        <div class="game-block" data-card="card_09">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/card-09.PNG" alt="card 9" />
+          </div>
+        </div>
+        <div class="game-block" data-card="card_09">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/card-09.PNG" alt="card 9" />
+          </div>
+        </div>
+
+        <div class="game-block" data-card="card_10">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/card-10.png" alt="card 10" />
+          </div>
+        </div>
+        <div class="game-block" data-card="card_10">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./assets/images/card-10.png" alt="card 10" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ------ # End Of The Game # ------ -->
+    <div class="end-box popup">
+      <span class="heading-title">Game Over</span>
+      <img
+        src="./assets/images/user.png"
+        class="userAvatar"
+        loading="lazy"
+        alt="user avatar"
+      />
+      <p class="userName">Mohammed Zain</p>
+      <div class="f-between" style="margin: 15px 0">
+        <div class="time-plying">Time plying <span>52s</span></div>
+        <div class="wrong-tries">Wrong Tries: <span>0</span></div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 15px">
+        <button class="btn" id="play-again">Play Again</button>
+        <button class="btn" id="new-game">New Game</button>
+      </div>
+      <div class="copyright">Developed by <a href="#">MohamedZain</a></div>
+    </div>
+
+    <script src="./assets/js/user.js"></script>
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>

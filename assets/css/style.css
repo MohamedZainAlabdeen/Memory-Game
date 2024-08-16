@@ -1,0 +1,322 @@
+:root {
+  --main-color-01: #fef1ec;
+  --main-color-02: #52443d;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url(../font/Poppins/Poppins-Regular.ttf);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+input {
+  font-family: "Poppins", sans-serif;
+  outline: 0;
+  border: 0;
+}
+
+button {
+  font-family: "Poppins", sans-serif;
+  border: 0;
+  cursor: pointer;
+}
+.style-svg {
+  fill: none;
+  stroke: #52443d;
+  stroke-linejoin: round;
+  stroke-width: 32px;
+  &.active {
+    stroke: #0eaa98;
+  }
+}
+
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #fffbff;
+}
+
+.f-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0000007e;
+  z-index: 110;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 20px;
+    width: 650px;
+    background-color: #fff;
+    border-radius: 4px;
+    z-index: 120;
+    .copyright {
+        text-align: center;
+        margin-top: 20px;
+        color: var(--main-color-02);
+        a {
+          color: black;
+        }
+      }
+}
+
+.start-box {
+  .title {
+    color: var(--main-color-02);
+    font-size: 30px;
+    text-align: center;
+  }
+  label {
+    display: block;
+    color: var(--main-color-02);
+    margin: 10px 0;
+    margin-left: 5px;
+  }
+  #yourName {
+    width: 100%;
+    height: 50px;
+    background-color: #f5f6f6;
+    color: var(--main-color-02);
+    font-size: 18px;
+    border-radius: 4px;
+    padding: 0 10px;
+  }
+  .select-box {
+    width: 100%;
+    height: 50px;
+    background-color: var(--main-color-01);
+    border-radius: 4px;
+    margin: 10px 0;
+  }
+  .choose-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+    cursor: pointer;
+  }
+  #start-game {
+    width: 100%;
+    height: 50px;
+    background-color: var(--main-color-02);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 18px;
+  }
+}
+
+.userAvatar {
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.container-game {
+  width: 1100px;
+  margin: auto;
+  margin-top: 10px;
+  /* Time Game */
+  .game-time {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--main-color-02);
+    padding: 6px 20px;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 0 0 4px 4px;
+    z-index: 100;
+  }
+  /* Heading Game */
+  .heading-game {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--main-color-01);
+    padding: 20px;
+    border-radius: 8px;
+    .user {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      .userName {
+        color: var(--main-color-02);
+        font-size: 22px;
+      }
+    }
+    .wrong-box {
+      color: var(--main-color-02);
+      font-size: 22px;
+    }
+  }
+  .memory-game-blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 8px;
+    margin-top: 10px;
+    &.no-clicking {
+      pointer-events: none;
+    }
+
+    .game-block {
+      height: 200px;
+      transition: transform 0.3s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+      position: relative;
+      .front {
+        background-color: var(--main-color-01);
+        line-height: 200px;
+        &::before {
+          content: "!";
+          color: var(--main-color-02);
+          font-size: 140px;
+          font-weight: bold;
+        }
+      }
+      .back {
+        background-color: var(--main-color-02);
+        transform: rotateY(180deg);
+        img {
+          width: 130px;
+          height: 130px;
+          margin-top: 30px;
+          object-fit: cover;
+        }
+      }
+      .face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        backface-visibility: hidden;
+        border-radius: 5px;
+      }
+      &.is-flipped,
+      &.has-match {
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+.end-box {
+    text-align: center;
+    display: none;
+    .userAvatar {
+        width: 70px;
+    }
+    .heading-title {
+      display: block;
+      margin-bottom: 15px;
+      font-size: 55px;
+      color: var(--main-color-02);
+    }
+    .userName {
+        color: var(--main-color-02);
+        font-size: 35px;
+
+    }
+    .time-plying,
+    .wrong-tries {
+        color: var(--main-color-02);
+        font-size: 18px;
+    }
+    .btn {
+        width: 50%;
+        height: 50px;
+        border-radius: 4px;
+        font-size: 17px;
+        color: #fff;
+        transition: .3s;
+    }
+    #play-again {
+        background-color: #14b8a6;
+        &:hover {
+            background-color: #0eaa98;
+        }
+    }
+    #new-game {
+        background-color: #3b82f6;
+        &:hover {
+            background-color: #3073df;
+        }
+    }
+}
+
+/* .memory-game-blocks.no-clicking {
+    pointer-events: none;
+} */
+
+/* 
+.game-block {
+  height: 200px;
+  transition: transform 0.3s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+
+}
+
+.game-block .front {
+  background-color: var(--main-color-01);
+  line-height: 200px;
+}
+
+.game-block .front::before {
+  content: "!";
+  color: var(--main-color-02);
+  font-size: 140px;
+  font-weight: bold;
+}
+
+.game-block .back {
+  background-color: var(--main-color-02);
+  transform: rotateY(180deg);
+}
+
+.game-block .back img {
+  width: 140px;
+  height: 140px;
+  margin-top: 30px;
+  object-fit: cover;
+}
+
+.game-block .face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  backface-visibility: hidden;
+  border-radius: 5px;
+}
+
+.game-block.is-flipped,
+.game-block.has-match {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  pointer-events: none;
+} */
